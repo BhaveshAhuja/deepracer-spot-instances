@@ -36,7 +36,7 @@ Resources:
           Name:
             !ImportValue
             'Fn::Sub': '${ResourcesStackName}-InstanceProfile'
-        ImageId: !Ref AmiId
+        ImageId: !GetAtt AMIInfo.Id
         InstanceType: !Ref InstanceType
         InstanceMarketOptions:
           MarketType: spot
