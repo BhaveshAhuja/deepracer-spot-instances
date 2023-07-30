@@ -63,15 +63,15 @@ def reward_function(params):
     if is_offtrack:
         reward = 0.0001
     else:
-        if speed>2.0 and speed<2.4 and abs(steering_angle) > 20:
-            reward = 1.5
-        elif speed>2.4 and speed<2.8 and abs(steering_angle) > 0:
-            reward = 1.5
-        elif speed>2.8 and speed<3.5 and steering_angle == 0:
+        if speed>2.0 and speed<2.6 and abs(steering_angle) > 20:
+            reward = 2.0
+        elif speed>2.6 and speed<3.0 and abs(steering_angle) > 0:
+            reward = 2.0
+        elif speed>3.0 and speed<3.7 and steering_angle == 0:
             reward = 1.0
-        elif speed>3.5 and speed<3.8 and steering_angle == 0:
+        elif speed>3.7 and speed<3.9 and steering_angle == 0:
             reward = 1.7
-        elif speed>3.8 and speed<4.1 and steering_angle == 0:
+        elif speed>3.9 and speed<4.1 and steering_angle == 0:
             reward = 2.0
         else:
             reward = 0.0001
