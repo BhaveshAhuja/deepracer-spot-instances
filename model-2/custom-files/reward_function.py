@@ -1,16 +1,13 @@
 import math
 def direction_reward(reward, waypoints, closest_waypoints, heading):
     total_length = len(waypoints)
-    prev_index = closest_waypoints[0]
+    prev_index = closest_waypoints[1]
     next_index = closest_waypoints[1]
     print("Actual Prev:- " + str(prev_index))
     print("Actual Next:- " + str(next_index))
-    if(prev_index-3>=0):
-        prev_index = prev_index-3
-    else:
-        prev_index = 0
-    if(next_index+3<total_length):
-        next_index = next_index+3
+    
+    if(next_index+6<total_length):
+        next_index = next_index+6
     else:
         next_index = total_length-1
     print("Modified Prev:- " + str(prev_index))
