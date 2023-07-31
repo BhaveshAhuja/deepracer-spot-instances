@@ -22,20 +22,22 @@ def direction_reward(reward, waypoints, closest_waypoints, heading):
     print("Next waypoint:- " + str(next_point))
 
     direction = math.degrees(math.atan2(next_point[1] - prev_point[1], next_point[0] - prev_point[0]))
-    direction_diff = abs(direction - heading)
+    direction_diff = direction - heading
 
     print("Calculated angle:- " + str(direction))
     print("Heading angle:- " + str(heading))
     print("Direction Diff:- " + str(direction_diff))
 
-    if direction_diff > 20:
+    if direction_diff >= 20 or direction_diff < -5:
         reward *= 0.5
-    elif direction_diff > 10:
-        reward *= 0.7
-    elif direction_diff > 5:
-        reward *= 1.3
-    elif direction_diff > 0:
+    elif direction_diff >= -5 and direction_diff < -1:
+        reward *= 1.2
+    elif direction_diff >= -1 and direction_diff < 6:
         reward *= 1.6
+    elif direction_diff >= 6 and direction_diff < 10:
+        reward *= 1.3
+    elif direction_diff >=10 and direction_diff < 20:
+        reward *= 0.7
 
     return float(reward)
 
