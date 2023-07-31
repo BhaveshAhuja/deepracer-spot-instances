@@ -19,7 +19,7 @@ def direction_reward(reward, waypoints, closest_waypoints, heading):
     print("Next waypoint:- " + str(next_point))
 
     direction = math.degrees(math.atan2(next_point[1] - prev_point[1], next_point[0] - prev_point[0]))
-    direction_diff = direction - heading
+    direction_diff = heading - direction
 
     print("Calculated angle:- " + str(direction))
     print("Heading angle:- " + str(heading))
