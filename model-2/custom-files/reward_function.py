@@ -1,13 +1,12 @@
 import math
 def direction_reward(reward, waypoints, closest_waypoints, heading):
     total_length = len(waypoints)
-    prev_index = closest_waypoints[1]
+    prev_index = closest_waypoints[0]
     next_index = closest_waypoints[1]
     print("Actual Prev:- " + str(prev_index))
     print("Actual Next:- " + str(next_index))
-    
-    if(next_index+6<total_length):
-        next_index = next_index+6
+    if(next_index+12<total_length):
+        next_index = next_index+12
     else:
         next_index = total_length-1
     print("Modified Prev:- " + str(prev_index))
@@ -19,22 +18,20 @@ def direction_reward(reward, waypoints, closest_waypoints, heading):
     print("Next waypoint:- " + str(next_point))
 
     direction = math.degrees(math.atan2(next_point[1] - prev_point[1], next_point[0] - prev_point[0]))
-    direction_diff = heading - direction
+    direction_diff = abs(direction - heading)
 
     print("Calculated angle:- " + str(direction))
     print("Heading angle:- " + str(heading))
     print("Direction Diff:- " + str(direction_diff))
 
-    if direction_diff >= 20 or direction_diff < -5:
+    if direction_diff > 20:
         reward *= 0.5
-    elif direction_diff >= -5 and direction_diff < -1:
-        reward *= 1.2
-    elif direction_diff >= -1 and direction_diff < 6:
-        reward *= 1.6
-    elif direction_diff >= 6 and direction_diff < 10:
-        reward *= 1.3
-    elif direction_diff >=10 and direction_diff < 20:
+    elif direction_diff > 10:
         reward *= 0.7
+    elif direction_diff > 5:
+        reward *= 1.3
+    elif direction_diff > 0:
+        reward *= 1.6
 
     return float(reward)
 
@@ -66,6 +63,8 @@ def reward_function(params):
             reward = 2.0
         elif speed>2.6 and speed<3.0 and abs(steering_angle) > 0:
             reward = 2.0
+        elif speed>3.0 and speed<3.7 and steering_angle == 0:
+            reward = 1.0
         elif speed>3.7 and speed<3.9 and steering_angle == 0:
             reward = 1.7
         elif speed>3.9 and speed<4.1 and steering_angle == 0:
