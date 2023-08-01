@@ -28,11 +28,11 @@ def direction_reward(reward, waypoints, closest_waypoints, heading):
 
     if direction_diff < -7:
         reward *= 0.5
-    elif direction_diff => -7 and direction_diff < -3:
+    elif direction_diff >= -7 and direction_diff < -3:
         reward *= 0.8
-    elif direction_diff => -3 and direction_diff < -1:
+    elif direction_diff >= -3 and direction_diff < -1:
         reward *= 1.2
-    elif direction_diff => -1 and direction_diff <= 2:
+    elif direction_diff >= -1 and direction_diff <= 2:
         reward *= 1.5
     elif direction_diff > 2 and direction_diff <= 6:
         reward *= 1.2
@@ -41,7 +41,6 @@ def direction_reward(reward, waypoints, closest_waypoints, heading):
     elif direction_diff > 10:
         reward *= 0.5
     
-
     return float(reward)
 
 def reward_function(params):
