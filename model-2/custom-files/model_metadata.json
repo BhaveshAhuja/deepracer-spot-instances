@@ -2,35 +2,35 @@
     "action_space": [
         {
             "steering_angle": 24,
-            "speed": 2.3
+            "speed": 1.7
         },
         {
             "steering_angle": -24,
-            "speed": 2.3
+            "speed": 1.7
         },
         {
             "steering_angle": -17,
-            "speed": 2.8
+            "speed": 2.2
         },
         {
             "steering_angle": 17,
-            "speed": 2.8
+            "speed": 2.2
         },
         {
             "steering_angle": -10,
-            "speed": 3.1
+            "speed": 3.0
         },
         {
             "steering_angle": 10,
-            "speed": 3.1
+            "speed": 3.0
         },
         {
             "steering_angle": 5,
-            "speed": 3.6
+            "speed": 3.5
         },
         {
             "steering_angle": -5,
-            "speed": 3.6
+            "speed": 3.5
         },
         {
             "steering_angle": 0,
