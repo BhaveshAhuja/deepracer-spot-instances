@@ -6,8 +6,8 @@ def direction_reward(reward, waypoints, closest_waypoints, heading):
     print("Actual Prev:- " + str(prev_index))
     print("Actual Next:- " + str(next_index))
     
-    if(next_index+5<total_length):
-        next_index = next_index+5
+    if(next_index+10<total_length):
+        next_index = next_index+10
     else:
         next_index = total_length-1
     
